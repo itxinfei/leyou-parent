@@ -18,6 +18,7 @@ import javax.servlet.http.HttpServletResponse;
 @RestController
 @EnableConfigurationProperties(JwtProperties.class)
 public class AuthController {
+
     @Autowired
     private JwtProperties prop;
     

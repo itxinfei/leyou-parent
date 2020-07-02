@@ -12,8 +12,6 @@ import org.springframework.test.context.junit4.SpringJUnit4ClassRunner;
 /**
  *
  */
-
-
 @RunWith(SpringJUnit4ClassRunner.class)
 @SpringBootTest(classes = LeyouSmsApplication.class)
 //@Import({LeyouSmsApplication.class})

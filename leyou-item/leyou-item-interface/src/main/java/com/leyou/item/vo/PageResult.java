@@ -6,9 +6,8 @@ import org.springframework.web.bind.annotation.RequestMapping;
 import java.util.List;
 
 /**
- * @Author: cuzz
- * @Date: 2018/11/2 9:55
- * @Description: 分页类
+ * 分页
+ * @param <T>
  */
 @Data
 public class PageResult<T> {

@@ -74,7 +74,6 @@ public class UploadControllerTest {
         System.out.println(path);
     }
 
-
     @Autowired
     private FastDFSClientWrapper fastDFSClientWrapper;
 
