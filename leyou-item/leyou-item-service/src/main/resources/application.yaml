@@ -11,13 +11,6 @@ spring:
       maximum-pool-size: 30
       minimum-idle: 10
 
-# 分页插件
-#pagehelper:
-#  helperDialect: mysql
-#  reasonable: true
-#  supportMethodsArguments: true
-#  params: count=countSql
-
   # 解决springboot 数据源循环依赖问题 eureka服务无法被调用
   cloud:
     refresh:
@@ -26,7 +19,14 @@ spring:
     addresses: 172.168.20.134
     username: guest
     password: guest
+    virtual-host: /
 
+logging:
+  level:
+    cup.com.mapper: DEBUG
+
+
+# 注册中心
 eureka:
   client:
     service-url:
@@ -38,12 +38,12 @@ eureka:
     ip-address: 127.0.0.1
     instance-id: ${spring.application.name}:${server.port}
 
+# API网关
 zuul:
   prefix: /api # 添加路由前缀
   retryable: true
   routes:
-    # 将商品微服务映射到/item/**
-    item-service: /item/**
+    item-service: /item/**   # 将商品微服务映射到/item/**
 
 management:
   endpoints:

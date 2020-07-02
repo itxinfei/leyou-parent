@@ -8,9 +8,7 @@ import java.util.Date;
 import java.util.List;
 
 /**
- * @Author: cuzz
- * @Date: 2018/11/6 19:38
- * @Description:
+ *
  */
 @Data
 @Table(name = "tb_spu")

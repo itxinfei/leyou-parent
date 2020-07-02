@@ -7,9 +7,7 @@ import javax.persistence.*;
 import java.util.Date;
 
 /**
- * @Author: cuzz
- * @Date: 2018/11/7 19:09
- * @Description:
+ * 分类
  */
 @Data
 @Table(name = "tb_sku")

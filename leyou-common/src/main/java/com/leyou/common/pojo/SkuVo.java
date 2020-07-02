@@ -1,13 +1,11 @@
-package com.leyou.item.vo;
+package com.leyou.common.pojo;
 
 import lombok.AllArgsConstructor;
 import lombok.Data;
 import lombok.NoArgsConstructor;
 
 /**
- * @Author: cuzz
- * @Date: 2018/11/10 17:56
- * @Description:
+ *
  */
 @Data
 @NoArgsConstructor

@@ -6,9 +6,7 @@ import tk.mybatis.mapper.annotation.KeySql;
 import javax.persistence.*;
 
 /**
- * @Author: cuzz
- * @Date: 2018/11/5 16:20
- * @Description:
+ *
  */
 @Data
 @Table(name = "tb_spec_param")

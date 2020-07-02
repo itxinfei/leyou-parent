@@ -6,8 +6,12 @@ import com.leyou.item.pojo.Category;
 import org.springframework.stereotype.Service;
 
 import javax.annotation.Resource;
+import java.util.ArrayList;
 import java.util.List;
 
+/**
+ * 分类管理
+ */
 @Service
 public class CategoryService implements CategoryApi {
 
@@ -53,4 +57,16 @@ public class CategoryService implements CategoryApi {
     public List<Category> queryCategoryListByids(List<Long> ids) {
         return null;
     }
+
+    @Override
+    public List<String> queryNameByIds(List<Long> ids) {
+        List<Category> list = this.categoryMapper.selectByIdList(ids);
+        List<String> names = new ArrayList<>();
+        for (Category category:list){
+            names.add(category.getName());
+        }
+        return names;
+    }
+
+
 }

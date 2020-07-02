@@ -9,9 +9,7 @@ import javax.persistence.Table;
 import java.util.List;
 
 /**
- * @Author: cuzz
- * @Date: 2018/11/1 14:42
- * @Description: 商品品牌
+ * 商品品牌
  */
 @Data
 @Table(name = "tb_brand")

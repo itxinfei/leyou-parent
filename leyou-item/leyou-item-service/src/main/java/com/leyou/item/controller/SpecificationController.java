@@ -2,32 +2,28 @@ package com.leyou.item.controller;
 
 import com.leyou.item.pojo.SpecGroup;
 import com.leyou.item.pojo.SpecParam;
-import com.leyou.item.service.GoodsService;
 import com.leyou.item.service.SpecificationService;
-import org.apache.ibatis.io.ResolverUtil;
-import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.http.HttpStatus;
 import org.springframework.http.ResponseEntity;
 import org.springframework.web.bind.annotation.*;
 
+import javax.annotation.Resource;
 import java.util.List;
 
 /**
- * @Author: cuzz
- * @Date: 2018/11/5 13:58
- * @Description:
+ * 分类管理
  */
 @RestController
 @RequestMapping("spec")
 public class SpecificationController {
 
-    @Autowired
-    SpecificationService specificationService;
-
+    @Resource
+    private SpecificationService specificationService;
 
 
     /**
      * 根据分类cid查询规格组
+     *
      * @param cid
      * @return
      */
@@ -38,6 +34,7 @@ public class SpecificationController {
 
     /**
      * 查询规格
+     *
      * @param gid
      * @param cid
      * @param searching
@@ -46,15 +43,16 @@ public class SpecificationController {
      */
     @GetMapping("/params")
     public ResponseEntity<List<SpecParam>> querySpecParams(
-            @RequestParam(value="gid", required = false) Long gid,
-            @RequestParam(value="cid", required = false) Long cid,
-            @RequestParam(value="searching", required = false) Boolean searching,
-            @RequestParam(value="generic", required = false) Boolean generic){
-        return ResponseEntity.ok(specificationService.querySpecParams(gid, cid, searching,generic));
+            @RequestParam(value = "gid", required = false) Long gid,
+            @RequestParam(value = "cid", required = false) Long cid,
+            @RequestParam(value = "searching", required = false) Boolean searching,
+            @RequestParam(value = "generic", required = false) Boolean generic) {
+        return ResponseEntity.ok(specificationService.querySpecParams(gid, cid, searching, generic));
     }
 
     /**
      * 根据分类查询规格组及组内分类
+     *
      * @param cid
      * @return
      */
@@ -63,5 +61,11 @@ public class SpecificationController {
         return ResponseEntity.ok(specificationService.querySpecsByCid(cid));
     }
 
+    @PostMapping("/group")
+    public ResponseEntity addSpecs() {
+
+
+        return new ResponseEntity<>(HttpStatus.OK);
+    }
 
 }

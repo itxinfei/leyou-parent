@@ -6,9 +6,7 @@ import javax.persistence.Id;
 import javax.persistence.Table;
 
 /**
- * @Author: cuzz
- * @Date: 2018/11/7 19:11
- * @Description:
+ *
  */
 @Data
 @Table(name = "tb_stock")

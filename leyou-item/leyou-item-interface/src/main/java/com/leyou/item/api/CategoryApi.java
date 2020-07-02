@@ -9,9 +9,7 @@ import org.springframework.web.bind.annotation.RequestParam;
 import java.util.List;
 
 /**
- * @Author: cuzz
- * @Date: 2018/11/9 16:03
- * @Description:
+ *
  */
 @RequestMapping("category")
 public interface CategoryApi {
@@ -22,5 +20,9 @@ public interface CategoryApi {
      */
     @GetMapping("list/ids")
     List<Category> queryCategoryListByids(@RequestParam("ids") List<Long> ids);
+
+    @GetMapping("names")
+    public List<String> queryNameByIds(@RequestParam("ids") List<Long> ids);
+
 
 }

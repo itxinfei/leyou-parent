@@ -10,9 +10,7 @@ import java.util.List;
 
 
 /**
- * @Author: cuzz
- * @Date: 2018/11/1 10:16
- * @Description: 分类
+ * 分类管理
  */
 @Table(name = "tb_category")
 @Data

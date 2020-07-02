@@ -7,11 +7,8 @@ import org.springframework.web.bind.annotation.PathVariable;
 import org.springframework.web.bind.annotation.RequestParam;
 
 import java.util.List;
-
 /**
- * @Author: cuzz
- * @Date: 2018/11/9 16:08
- * @Description:
+ *
  */
 public interface SpecificationApi {
 

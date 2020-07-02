@@ -30,7 +30,7 @@ zuul:
   add-host-header: true #网关转发时，携带头信息
   sensitive-headers:  #配置敏感头信息为null,否则set-cookie无效
   ignored-services:
-    - upload-service # 忽略upload-service服务(集合语法,可配置多个)
+    - upload-service # 忽略upload-service服务(集合语法,可配置多个)，例如上传服务，如果上传文件也经Zuul网关，会造成不必要的网络负担，在高并发的情况下，有可能会造成整个系统的瘫痪，因此文件上传的请求是不经过网关来处理的。
 
 # 负载均衡
 ribbon:

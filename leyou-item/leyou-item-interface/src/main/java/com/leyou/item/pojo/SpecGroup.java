@@ -10,9 +10,7 @@ import java.net.UnknownServiceException;
 import java.util.List;
 
 /**
- * @Author: cuzz
- * @Date: 2018/11/5 13:47
- * @Description:
+ *
  */
 @Table(name = "tb_spec_group")
 @Data
