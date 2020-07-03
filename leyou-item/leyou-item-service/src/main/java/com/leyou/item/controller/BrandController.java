@@ -5,7 +5,6 @@ import com.leyou.item.pojo.Brand;
 import com.leyou.item.service.BrandService;
 import org.springframework.http.HttpStatus;
 import org.springframework.http.ResponseEntity;
-import org.springframework.util.CollectionUtils;
 import org.springframework.web.bind.annotation.*;
 
 import javax.annotation.Resource;
@@ -72,11 +71,27 @@ public class BrandController {
      *
      * @return
      */
-    @RequestMapping("/list")
+    @RequestMapping("/all")
     public ResponseEntity<List<Brand>> findAll() {
         List<Brand> list = this.brandService.findAll();
         if (list == null || list.size() < 1) {
             return new ResponseEntity<>(HttpStatus.NOT_FOUND);
+        }
+        return ResponseEntity.ok(list);
+    }
+
+
+    /**
+     * 根据多个id查询品牌
+     *
+     * @param ids
+     * @return
+     */
+    @GetMapping("list")
+    public ResponseEntity<List<Brand>> queryBrandByIds(@RequestParam("ids") List<Long> ids) {
+        List<Brand> list = this.brandService.queryBrandByIds(ids);
+        if (list == null) {
+            new ResponseEntity<>(HttpStatus.NOT_FOUND);
         }
         return ResponseEntity.ok(list);
     }
@@ -102,7 +117,7 @@ public class BrandController {
     public ResponseEntity<List<Brand>> queryBrandListByCid(@PathVariable("cid") Long cid) {
 
         List<Brand> list = brandService.queryBrandByCategory(cid);
-        if(list == null){
+        if (list == null) {
             new ResponseEntity<>(HttpStatus.NOT_FOUND);
         }
         return ResponseEntity.ok(list);

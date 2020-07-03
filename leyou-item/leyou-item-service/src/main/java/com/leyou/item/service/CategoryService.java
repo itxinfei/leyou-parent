@@ -7,6 +7,7 @@ import org.springframework.stereotype.Service;
 
 import javax.annotation.Resource;
 import java.util.ArrayList;
+import java.util.Arrays;
 import java.util.List;
 
 /**
@@ -68,5 +69,16 @@ public class CategoryService implements CategoryApi {
         return names;
     }
 
+    /**
+     * 根据三级分类id查询1~3级分类集合
+     * @param id
+     * @return
+     */
+    public List<Category> queryAllByCid3(Long id) {
+        Category c3 = this.categoryMapper.selectByPrimaryKey(id);
+        Category c2 = this.categoryMapper.selectByPrimaryKey(c3.getParentId());
+        Category c1 = this.categoryMapper.selectByPrimaryKey(c2.getParentId());
+        return Arrays.asList(c1,c2,c3);
+    }
 
 }

@@ -10,7 +10,7 @@ import java.net.UnknownServiceException;
 import java.util.List;
 
 /**
- *
+ *  规格组
  */
 @Table(name = "tb_spec_group")
 @Data

@@ -27,14 +27,24 @@ public class SpecificationService {
     @Resource
     private SpecParamMapper specParamMapper;
 
+    /**
+     * 根据分类cid查询规格组
+     *
+     * @param cid
+     * @return
+     */
     public List<SpecGroup> queryGroupByCid(Long cid) {
+        //组装数据
         SpecGroup group = new SpecGroup();
         group.setCid(cid);
-        List<SpecGroup> list = specGroupMapper.select(group);
-        if (CollectionUtils.isEmpty(list)) {
-            throw new LyException(ExceptionEnum.SPEC_GROUP_NOT_FOUND);
+        System.out.println("组装的SpecGroup数据："+group.toString());
+        //根据cid查询数据库
+        List<SpecGroup> select = specGroupMapper.select(group);
+        //遍历规格数据
+        for (SpecGroup specGroup : select) {
+            System.out.println(specGroup);
         }
-        return list;
+        return select;
     }
 
 
@@ -83,5 +93,12 @@ public class SpecificationService {
             g.setParams(this.querySpecParams(g.getId(), null, null, null));
         });
         return groups;
+    }
+
+    /**
+     * 查询所有规格组数据
+     */
+    public List<SpecGroup> querySpecsAll() {
+        return specGroupMapper.selectAll();
     }
 }

@@ -9,13 +9,14 @@ import org.springframework.web.bind.annotation.RequestParam;
 import java.util.List;
 
 /**
- *
+ * 商品分类服务接口
  */
 @RequestMapping("category")
 public interface CategoryApi {
 
     /**
      * 根据id查询商品分类
+     *
      * @param ids
      */
     @GetMapping("list/ids")

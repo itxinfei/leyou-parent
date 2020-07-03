@@ -25,10 +25,10 @@ public class GlobalCorsConfig {
         config.addAllowedOrigin("http://manage.leyou.com");
         config.addAllowedOrigin("http://api.leyou.com");
         /**
-         * ip
+         * 允许的ip
          */
-        // config.addAllowedOrigin("http://127.0.0.1:9001");
-        //config.addAllowedOrigin("http://127.0.0.1:10010");
+        config.addAllowedOrigin("http://127.0.0.1:9001");
+        config.addAllowedOrigin("http://127.0.0.1:10010");
         /**
          * 2、是否发送Cookie信息
          */

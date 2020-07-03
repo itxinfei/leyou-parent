@@ -83,7 +83,7 @@ public class GoodsService {
             return spuBo;
         }).collect(Collectors.toList());
         // 返回PageResult<SpuBo>
-        return new PageResult<SpuBo>( Long.valueOf(pageInfo.getPages()), (int) pageInfo.getTotal(),spuBos);
+        return new PageResult<SpuBo>(Long.valueOf(pageInfo.getPages()), (int) pageInfo.getTotal(), spuBos);
     }
 
 
@@ -108,6 +108,12 @@ public class GoodsService {
         sendMsg("insert", spuBo.getId());
     }
 
+    /**
+     * 查询SpuDetail
+     *
+     * @param spuId
+     * @return
+     */
     public SpuDetail querySpuDetailBySpuId(Long spuId) {
         return spuDetailMapper.selectByPrimaryKey(spuId);
     }
@@ -117,12 +123,17 @@ public class GoodsService {
         record.setSpuId(spuId);
         List<Sku> skus = skuMapper.select(record);
         skus.forEach(sku -> {
-            Stock stock = stockMapper.selectByPrimaryKey(sku.getId());
-            sku.setStock(stock.getStock());
+            // 同时查询出库存
+            sku.setStock(this.stockMapper.selectByPrimaryKey(sku.getId()).getStock());
         });
         return skus;
     }
 
+    /**
+     * 新增商品
+     *
+     * @param spuBo
+     */
     public void updateGoods(SpuBo spuBo) {
         // 根据spuUd查询要删除的sku
         Sku record = new Sku();
@@ -153,10 +164,17 @@ public class GoodsService {
         return spuMapper.selectByPrimaryKey(id);
     }
 
+    /**
+     * @param skuId
+     * @return
+     */
     public Sku querySkuBySkuId(Long skuId) {
         return skuMapper.selectByPrimaryKey(skuId);
     }
 
+    /**
+     * @param spuBo
+     */
     private void saveSkuAndStock(SpuBo spuBo) {
         spuBo.getSkus().forEach(sku -> {
             // 新增sku
@@ -173,11 +191,17 @@ public class GoodsService {
         });
     }
 
+    /**
+     * 发送消息到mq
+     * @param type
+     * @param id
+     */
     private void sendMsg(String type, Long id) {
+        // 发送消息
         try {
-            amqpTemplate.convertAndSend("item." + type, id);
-        } catch (AmqpException e) {
-            e.printStackTrace();
+            this.amqpTemplate.convertAndSend("item." + type, id);
+        } catch (Exception e) {
+            //logger.error("{}商品消息发送异常，商品id：{}", type, id, e);
         }
     }
 }

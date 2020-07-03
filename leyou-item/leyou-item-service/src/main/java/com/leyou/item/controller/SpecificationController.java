@@ -11,7 +11,7 @@ import javax.annotation.Resource;
 import java.util.List;
 
 /**
- * 分类管理
+ * 规格管理-CRUD
  */
 @RestController
 @RequestMapping("spec")
@@ -27,7 +27,7 @@ public class SpecificationController {
      * @param cid
      * @return
      */
-    @GetMapping("groups/{cid}")
+    @RequestMapping("groups/{cid}")
     public ResponseEntity<List<SpecGroup>> queryGroupByCid(@PathVariable("cid") Long cid) {
         return ResponseEntity.ok(specificationService.queryGroupByCid(cid));
     }
@@ -41,7 +41,7 @@ public class SpecificationController {
      * @param generic
      * @return
      */
-    @GetMapping("/params")
+    @RequestMapping("/params")
     public ResponseEntity<List<SpecParam>> querySpecParams(
             @RequestParam(value = "gid", required = false) Long gid,
             @RequestParam(value = "cid", required = false) Long cid,
@@ -56,16 +56,19 @@ public class SpecificationController {
      * @param cid
      * @return
      */
-    @GetMapping("{cid}")
+    @RequestMapping("{cid}")
     public ResponseEntity<List<SpecGroup>> querySpecsByCid(@PathVariable("cid") Long cid) {
         return ResponseEntity.ok(specificationService.querySpecsByCid(cid));
     }
 
-    @PostMapping("/group")
-    public ResponseEntity addSpecs() {
-
-
-        return new ResponseEntity<>(HttpStatus.OK);
+    /**
+     * 查询所有规格组
+     *
+     * @return
+     */
+    @RequestMapping("/group")
+    public ResponseEntity<List<SpecGroup>> querySpecsAll() {
+        return ResponseEntity.ok(specificationService.querySpecsAll());
     }
 
 }

@@ -16,15 +16,17 @@ spring:
     refresh:
       refreshable: none
   rabbitmq:
-    addresses: 172.168.20.134
+    addresses: 172.168.20.220
     username: guest
     password: guest
     virtual-host: /
+    template:
+      exchange: leyou.item.exchange
+    publisher-confirms: true
 
 logging:
   level:
     cup.com.mapper: DEBUG
-
 
 # 注册中心
 eureka:
@@ -45,8 +47,12 @@ zuul:
   routes:
     item-service: /item/**   # 将商品微服务映射到/item/**
 
+# actuator监控应用
 management:
   endpoints:
+    info:
+      build:
+        enabled: true
     web:
       exposure:
         #暴露所有节点
@@ -58,4 +64,7 @@ management:
     health:
       #显示详细信息
       show-details: ALWAYS
+
+
+
 

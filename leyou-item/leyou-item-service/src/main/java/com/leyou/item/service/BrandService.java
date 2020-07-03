@@ -136,4 +136,13 @@ public class BrandService {
         // 返回结果
         return new PageResult<>(pageInfo.getTotal(), pageInfo);
     }
+
+    /**
+     * 根据多个id查询品牌
+     * @param ids
+     * @return
+     */
+    public List<Brand> queryBrandByIds(List<Long> ids) {
+        return this.brandMapper.selectByIdList(ids);
+    }
 }
