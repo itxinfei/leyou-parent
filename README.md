@@ -96,6 +96,12 @@
 - 文件服务-8082
 - leyou-upload
 
+- 搜索服务-8083
+-leyou-search
+
+- 页面静态化-8084
+- leyou-goods-web
+
 - 用户服务-8085
 - leyou-user
 
@@ -115,13 +121,16 @@
 - leyou-common
 
 ## 前端工程架构
+
 - 后台系统-9001
 - leyou-manage-web
+
 - 前端页面-9002
 - leyou-portal
 
 
 ## nginx
+
 ### api网关
 - http://api.leyou.com
 - http://127.0.0.1:10010
