@@ -3,8 +3,8 @@ package com.leyou.order.controller;
 import com.leyou.common.pojo.PageResult;
 import com.leyou.order.pojo.Order;
 import com.leyou.order.service.OrderService;
-import com.leyou.utils.PayHelper;
-import com.leyou.utils.PayState;
+import com.leyou.PayHelper;
+import com.leyou.PayState;
 import io.swagger.annotations.*;
 import org.apache.commons.lang3.StringUtils;
 import org.springframework.beans.factory.annotation.Autowired;
@@ -157,5 +157,4 @@ public class OrderController {
         PayState payState = this.payHelper.queryOrder(orderId);
         return ResponseEntity.ok(payState.getValue());
     }
-
 }

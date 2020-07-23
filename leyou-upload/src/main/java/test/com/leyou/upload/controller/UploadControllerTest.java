@@ -45,10 +45,8 @@ public class UploadControllerTest {
 
     @Test
     public void testUploadImage() throws Exception {
-
-        File file = new File("E:\\我的图片\\aaa.png");
+        File file = new File("E:\\我的图片\\xcjx.png");
         System.out.println(file);
-
         // 上传并且生成缩略图
         StorePath storePath = this.storageClient.uploadFile(
                 new FileInputStream(file), file.length(), "png", null);

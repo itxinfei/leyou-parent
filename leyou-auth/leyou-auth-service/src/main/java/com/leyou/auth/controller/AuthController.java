@@ -12,6 +12,7 @@ import org.springframework.http.HttpStatus;
 import org.springframework.http.ResponseEntity;
 import org.springframework.web.bind.annotation.*;
 
+import javax.annotation.Resource;
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
 
@@ -19,16 +20,16 @@ import javax.servlet.http.HttpServletResponse;
 @EnableConfigurationProperties(JwtProperties.class)
 public class AuthController {
 
-    @Autowired
+    @Resource
     private JwtProperties prop;
-    
-    @Autowired
+
+    @Resource
     private AuthService authService;
 
     /**
      * 登陆授权
      */
-    @PostMapping("accredit")
+    @RequestMapping("accredit")
     public ResponseEntity<Void> accredit(
             @RequestParam("username") String username,
             @RequestParam("password") String password,
@@ -36,6 +37,8 @@ public class AuthController {
             HttpServletResponse response) {
         //登陆校验
         String token = this.authService.accredit(username, password);
+        System.out.println("token:"+token);
+
         if (StringUtils.isBlank(token)) {
             return new ResponseEntity<>(HttpStatus.UNAUTHORIZED);
         }
@@ -45,7 +48,15 @@ public class AuthController {
         return ResponseEntity.noContent().build();
     }
 
-    @GetMapping("verify")
+    /**
+     * 核实
+     *
+     * @param token
+     * @param request
+     * @param response
+     * @return
+     */
+    @RequestMapping("verify")
     public ResponseEntity<UserInfo> verifyUser(@CookieValue("LY_TOKEN") String token,
                                                HttpServletRequest request, HttpServletResponse response) {
         try {

@@ -6,7 +6,7 @@ spring:
   servlet:
     multipart:
       max-file-size: 5MB # 限制文件上传的大小
-# Eureka
+# Eureka注册中心
 eureka:
   client:
     service-url:
@@ -17,7 +17,7 @@ eureka:
     prefer-ip-address: true
     ip-address: 127.0.0.1
     instance-id: ${spring.application.name}:${server.port}
-
+# fastdfs服务器，显示端口为8888
 fdfs:
   so-timeout: 1501
   connect-timeout: 601
@@ -25,4 +25,4 @@ fdfs:
     width: 150
     height: 150
   tracker-list: # tracker地址
-    - 172.168.20.134:22122
+    - 192.168.8.6:22122

@@ -13,23 +13,31 @@ import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Component;
 import org.springframework.util.CollectionUtils;
 
+import javax.annotation.Resource;
 import java.util.Map;
 
 @Component
 public class SmsListener {
 
-    @Autowired
+    @Resource
     private SmsUtils smsUtils;
 
-    @Autowired
+    @Resource
     private SmsProperties properties;
 
+    /**
+     * @param msg
+     * @throws ClientException
+     */
     @RabbitListener(bindings = @QueueBinding(
             value = @Queue(value = "leyou.sms.message", durable = "true"),
             exchange = @Exchange(value = "leyou.sms.exchange", ignoreDeclarationExceptions = "true", type = ExchangeTypes.TOPIC),
             key = {"sms.register"}
     ))
 
+    /**
+     *
+     */
     public void listener(Map<String, String> msg) throws ClientException {
         if (CollectionUtils.isEmpty(msg)) {
             return;
@@ -37,6 +45,8 @@ public class SmsListener {
         // 解析消息
         String phone = msg.get("phone");
         String code = msg.get("code");
+        //打印消息
+        System.out.println("手机：" + phone + "验证码：" + code);
 
         if (StringUtils.isBlank(phone) || StringUtils.isBlank(code)) {
             // 放弃处理

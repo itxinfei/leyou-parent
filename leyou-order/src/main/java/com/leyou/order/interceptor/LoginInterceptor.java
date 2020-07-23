@@ -22,6 +22,14 @@ public class LoginInterceptor extends HandlerInterceptorAdapter {
         this.jwtProperties = jwtProperties;
     }
 
+    /**
+     *
+     * @param request
+     * @param response
+     * @param handler
+     * @return
+     * @throws Exception
+     */
     @Override
     public boolean preHandle(HttpServletRequest request, HttpServletResponse response, Object handler) throws Exception {
         // 查询token

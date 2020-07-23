@@ -27,6 +27,12 @@ public class UploadService {
     @Autowired
     FastFileStorageClient storageClient;
 
+    /**
+     * 文件上传
+     *
+     * @param file
+     * @return
+     */
     public String upload(MultipartFile file) {
         try {
             // 1、图片信息校验
@@ -42,7 +48,6 @@ public class UploadService {
                 logger.info("上传失败，文件内容不符合要求");
                 return null;
             }
-
             // 2、将图片上传到FastDFS
             // 2.1、获取文件后缀名
             String extension = StringUtils.substringAfterLast(file.getOriginalFilename(), ".");

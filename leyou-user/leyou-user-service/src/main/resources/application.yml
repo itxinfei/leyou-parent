@@ -16,6 +16,12 @@ spring:
     username: leyou
     password: leyou
     virtual-host: /
+    template:
+      retry:
+        enabled: true
+        initial-interval: 10000ms
+        max-interval: 210000ms
+        multiplier: 2
     #leyou
     publisher-confirms: true
   redis:

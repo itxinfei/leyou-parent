@@ -1,4 +1,4 @@
-package com.leyou.utils;
+package com.leyou;
 
 /**
  * 支付状态枚举

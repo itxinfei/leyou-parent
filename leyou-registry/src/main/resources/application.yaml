@@ -23,3 +23,6 @@ eureka:
     enable-self-preservation: false
     # 每隔5秒进行一次服务列表清理
     eviction-interval-timer-in-ms: 20000
+  instance:
+    prefer-ip-address: true
+    instance-id: http://127.0.0.1:${server.port}/eureka

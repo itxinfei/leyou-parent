@@ -18,7 +18,7 @@ import javax.servlet.http.HttpServletRequest;
 /**
  * 过滤器
  */
-//@EnableConfigurationProperties({JwtProperties.class, FilterProperties.class})
+@EnableConfigurationProperties({JwtProperties.class, FilterProperties.class})
 public class LoginFilter extends ZuulFilter {
 
     @Resource
@@ -38,6 +38,9 @@ public class LoginFilter extends ZuulFilter {
         return 5;
     }
 
+    /**
+     * @return
+     */
     @Override
     public boolean shouldFilter() {
         RequestContext context = RequestContext.getCurrentContext();
@@ -57,6 +60,10 @@ public class LoginFilter extends ZuulFilter {
         return true;
     }
 
+    /**
+     * @return
+     * @throws ZuulException
+     */
     @Override
     public Object run() throws ZuulException {
         /**

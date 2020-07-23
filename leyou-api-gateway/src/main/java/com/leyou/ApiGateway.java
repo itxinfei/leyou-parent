@@ -6,7 +6,7 @@ import org.springframework.cloud.client.discovery.EnableDiscoveryClient;
 import org.springframework.cloud.netflix.zuul.EnableZuulProxy;
 
 /**
- * 乐优商城API网关
+ * 商城API网关
  */
 @SpringBootApplication
 @EnableDiscoveryClient

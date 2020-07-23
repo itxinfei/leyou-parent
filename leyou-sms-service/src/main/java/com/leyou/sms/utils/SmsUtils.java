@@ -33,6 +33,8 @@ public class SmsUtils {
 
     public  SendSmsResponse sendSms(String phone, String code, String signName, String template) throws ClientException {
 
+        System.out.println("开始发送短信！！！");
+
         //可自助调整超时时间
         System.setProperty("sun.net.client.defaultConnectTimeout", "10000");
         System.setProperty("sun.net.client.defaultReadTimeout", "10000");

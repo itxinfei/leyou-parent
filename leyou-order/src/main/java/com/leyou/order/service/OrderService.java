@@ -38,6 +38,10 @@ public class OrderService {
 
     private static final Logger logger = LoggerFactory.getLogger(OrderService.class);
 
+    /**
+     * @param order
+     * @return
+     */
     @Transactional
     public Long createOrder(Order order) {
         // 生成orderId
@@ -71,6 +75,10 @@ public class OrderService {
         return orderId;
     }
 
+    /**
+     * @param id
+     * @return
+     */
     public Order queryById(Long id) {
         // 查询订单
         Order order = this.orderMapper.selectByPrimaryKey(id);
@@ -87,6 +95,12 @@ public class OrderService {
         return order;
     }
 
+    /**
+     * @param page
+     * @param rows
+     * @param status
+     * @return
+     */
     public PageResult<Order> queryUserOrderList(Integer page, Integer rows, Integer status) {
         try {
             // 分页
@@ -103,6 +117,11 @@ public class OrderService {
         }
     }
 
+    /**
+     * @param id
+     * @param status
+     * @return
+     */
     @Transactional
     public Boolean updateStatus(Long id, Integer status) {
         OrderStatus record = new OrderStatus();

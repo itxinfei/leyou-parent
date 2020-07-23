@@ -14,7 +14,6 @@ import tk.mybatis.spring.annotation.MapperScan;
 @EnableFeignClients
 @MapperScan("com.leyou.order.mapper")
 public class LeyouOrderApplication {
-
     public static void main(String[] args) {
         SpringApplication.run(LeyouOrderApplication.class, args);
     }

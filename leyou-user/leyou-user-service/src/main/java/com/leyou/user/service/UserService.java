@@ -34,6 +34,16 @@ public class UserService {
 
     static final Logger logger = LoggerFactory.getLogger(UserService.class);
 
+    public UserService(AmqpTemplate amqpTemplate) {
+        this.amqpTemplate = amqpTemplate;
+    }
+
+    /**
+     * 发送短信
+     *
+     * @param phone
+     * @return
+     */
     public Boolean sendVerifyCode(String phone) {
         // 生成验证码
         String code = NumberUtils.generateCode(6);
@@ -43,7 +53,7 @@ public class UserService {
             msg.put("phone", phone);
             msg.put("code", code);
             //调用阿里云，发送短信
-            //this.amqpTemplate.convertAndSend("leyou.sms.exchange", "sms.register", msg);
+            this.amqpTemplate.convertAndSend("leyou.sms.exchange", "sms.register", msg);
             // 将code存入redis
             this.redisTemplate.opsForValue().set(KEY_PREFIX + phone, code, 5, TimeUnit.MINUTES);
             System.out.println("code = " + code);
@@ -54,6 +64,11 @@ public class UserService {
         }
     }
 
+    /**
+     * @param data
+     * @param type
+     * @return
+     */
     public Boolean checkData(String data, Integer type) {
         User record = new User();
         switch (type) {
@@ -69,7 +84,11 @@ public class UserService {
         return this.userMapper.selectCount(record) == 0;
     }
 
-
+    /**
+     * @param user
+     * @param code
+     * @return
+     */
     public Boolean register(User user, String code) {
         //校验短信验证码
         String cacheCode = this.redisTemplate.opsForValue().get(KEY_PREFIX + user.getPhone());
@@ -96,6 +115,11 @@ public class UserService {
         return b;
     }
 
+    /**
+     * @param username
+     * @param password
+     * @return
+     */
     public User queryUser(String username, String password) {
 
         //查询

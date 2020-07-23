@@ -27,8 +27,8 @@ public class GlobalCorsConfig {
         /**
          * 允许的ip
          */
-        config.addAllowedOrigin("http://127.0.0.1:9001");
-        config.addAllowedOrigin("http://127.0.0.1:10010");
+        //config.addAllowedOrigin("http://127.0.0.1:9002");
+        //config.addAllowedOrigin("http://127.0.0.1:10010");
         /**
          * 2、是否发送Cookie信息
          */
@@ -52,6 +52,10 @@ public class GlobalCorsConfig {
          */
         UrlBasedCorsConfigurationSource configSource = new UrlBasedCorsConfigurationSource();
         configSource.registerCorsConfiguration("/**", config);
+
+        //输出configSource
+        System.out.println("configSource:" + configSource.toString());
+
         /**
          * 三、返回新的CorsFilter
          */
