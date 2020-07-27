@@ -14,7 +14,7 @@ spring:
     host: 192.168.8.6
 leyou:
   sms:
-    accessKeyId: LTAIiu7S1tYB8KV6                    # 你自己的accessKeyId
-    accessKeySecret: rpu99duohLQFl5CtOQnMGyMnL708wS  # 你自己的AccessKeySecret
+    accessKeyId: LTAIaaiu7S1tYB8KV6                    # 你自己的accessKeyId
+    accessKeySecret: rpu9911duohLQFl5CtOQnMGyMnL708wS  # 你自己的AccessKeySecret
     signName: 心飞为你飞                              # 签名名称
     verifyCodeTemplate: SMS_76525096                 # 模板名称
