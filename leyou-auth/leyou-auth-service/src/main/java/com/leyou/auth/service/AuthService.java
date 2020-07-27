@@ -8,16 +8,18 @@ import com.leyou.user.pojo.User;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
+import javax.annotation.Resource;
+
 /**
  *
  */
 @Service
 public class AuthService {
 
-    @Autowired
+    @Resource
     private UserClient userClient;
 
-    @Autowired
+    @Resource
     private JwtProperties prop;
 
     /**

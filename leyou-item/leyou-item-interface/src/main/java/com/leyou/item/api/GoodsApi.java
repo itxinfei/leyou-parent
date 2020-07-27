@@ -16,6 +16,7 @@ import java.util.List;
 public interface GoodsApi {
     /**
      * 分页查询spu
+     *
      * @param page
      * @param rows
      * @param saleable
@@ -29,10 +30,9 @@ public interface GoodsApi {
             @RequestParam(value = "saleable", required = false) Boolean saleable,
             @RequestParam(value = "key", required = false) String key);
 
-
-
     /**
      * 根据spu的id查询sku
+     *
      * @param id
      * @return
      */
@@ -41,6 +41,7 @@ public interface GoodsApi {
 
     /**
      * 根据spu商品id查询详情
+     *
      * @param id
      * @return
      */
@@ -49,6 +50,7 @@ public interface GoodsApi {
 
     /**
      * 根据spu的id查询spu
+     *
      * @param id
      * @return
      */

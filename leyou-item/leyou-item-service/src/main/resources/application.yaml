@@ -16,10 +16,10 @@ spring:
     refresh:
       refreshable: none
   rabbitmq:
-    addresses: 172.168.20.220
-    username: guest
-    password: guest
-    virtual-host: /
+    addresses: 192.168.8.6
+    username: leyou
+    password: leyou
+    virtual-host: leyou
     template:
       exchange: leyou.item.exchange
     publisher-confirms: true
@@ -41,11 +41,11 @@ eureka:
     instance-id: ${spring.application.name}:${server.port}
 
 # API网关
-zuul:
-  prefix: /api # 添加路由前缀
-  retryable: true
-  routes:
-    item-service: /item/**   # 将商品微服务映射到/item/**
+#zuul:
+#  prefix: /api # 添加路由前缀
+#  retryable: true
+#  routes:
+#    item-service: /item/**   # 将商品微服务映射到/item/**
 
 # actuator监控应用
 management:

@@ -32,24 +32,13 @@ zuul:
   ignored-services:
     - upload-service            # 忽略upload-service服务(集合语法,可配置多个)，例如上传服务，如果上传文件也经Zuul网关，会造成不必要的网络负担，在高并发的情况下，有可能会造成整个系统的瘫痪，因此文件上传的请求是不经过网关来处理的。
 
-# 限流
-#ratelimit:
-#  enabled: true
-#  repository: REDIS #使用redis存储，一定要大写！
-#  policies:
-#    a: #针对上面那个服务的限流
-#      limit: 50 #每秒多少个请求
-#      refreshInterval: 60 #刷新时间窗口的时间，默认值 (秒)
-#      type:
-#        - ORIGIN #这里一定要大写,类型说明：URL通过请求路径区分，ORIGIN通过客户端IP地址区分，USER是通过登录用户名进行区分，也包括匿名用户
-
 # 负载均衡
 ribbon:
   ConnectTimeout: 250            # 连接超时时间(ms)
   ReadTimeout: 2000              # 通信超时时间(ms)
   OkToRetryOnAllOperations: true # 是否对所有操作重试
-  MaxAutoRetriesNextServer: 2    # 同一服务不同实例的重试次数
-  MaxAutoRetries: 2              # 同一实例的重试次数
+  MaxAutoRetriesNextServer: 1    # 同一服务不同实例的重试次数
+  MaxAutoRetries: 1              # 同一实例的重试次数
 
 # 断容器
 hystrix:

@@ -22,7 +22,7 @@ import java.util.List;
  * SKU：Stock Keeping Unit（库存量单位），SPU商品集因具体特性不同而细分的每个商品
  */
 @RestController
-//@RequestMapping("goods")
+@RequestMapping("goods")
 public class GoodsController {
 
     @Resource

@@ -123,7 +123,6 @@ public class BrandController {
         return ResponseEntity.ok(list);
     }
 
-
     /**
      * 分页查询品牌
      *

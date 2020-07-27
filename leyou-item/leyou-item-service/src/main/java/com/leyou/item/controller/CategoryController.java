@@ -35,7 +35,6 @@ public class CategoryController {
         return ResponseEntity.ok(list);
     }
 
-
     /**
      * 根据ID查询商品列表
      *
@@ -63,12 +62,13 @@ public class CategoryController {
 
     /**
      * 根据商品分类id查询名称
+     *
      * @param ids 要查询的分类id集合
      * @return 多个名称的集合
      */
     @GetMapping("names")
-    public ResponseEntity<List<String>> queryNameByIds(@RequestParam("ids") List<Long> ids){
-        List<String > list = this.categoryService.queryNameByIds(ids);
+    public ResponseEntity<List<String>> queryNameByIds(@RequestParam("ids") List<Long> ids) {
+        List<String> list = this.categoryService.queryNameByIds(ids);
         if (list == null || list.size() < 1) {
             return new ResponseEntity<>(HttpStatus.NOT_FOUND);
         }

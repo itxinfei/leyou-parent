@@ -1,6 +1,5 @@
 package com.leyou.goods.search.service;
 
-
 import com.fasterxml.jackson.core.type.TypeReference;
 import com.fasterxml.jackson.databind.ObjectMapper;
 import com.leyou.common.pojo.PageResult;
@@ -34,6 +33,7 @@ import org.springframework.data.elasticsearch.core.query.FetchSourceFilter;
 import org.springframework.data.elasticsearch.core.query.NativeSearchQueryBuilder;
 import org.springframework.stereotype.Service;
 
+import javax.annotation.Resource;
 import javax.swing.*;
 import java.io.IOException;
 import java.util.*;
@@ -43,19 +43,26 @@ import java.util.*;
  */
 @Service
 public class SearchService {
+
     @Autowired
     private CategoryClient categoryClient;
+
     @Autowired
     private GoodsClient goodsClient;
+
     @Autowired
     private SpecificationClient specificationClient;
+
     @Autowired
     private BrandClient brandClient;
+
     @Autowired
     private GoodsRepository goodsRepository;
+
     @Autowired
     private ElasticsearchTemplate elasticsearchTemplate;
-    @Autowired
+
+    @Resource
     private CategoryMapper categoryMapper;
 
     private ObjectMapper mapper = new ObjectMapper();
@@ -398,7 +405,6 @@ public class SearchService {
     }
 
     /**
-     *
      * @param id
      * @return
      */
@@ -406,6 +412,6 @@ public class SearchService {
         Category c3 = this.categoryMapper.selectByPrimaryKey(id);
         Category c2 = this.categoryMapper.selectByPrimaryKey(c3.getParentId());
         Category c1 = this.categoryMapper.selectByPrimaryKey(c2.getParentId());
-        return Arrays.asList(c1,c2,c3);
+        return Arrays.asList(c1, c2, c3);
     }
 }

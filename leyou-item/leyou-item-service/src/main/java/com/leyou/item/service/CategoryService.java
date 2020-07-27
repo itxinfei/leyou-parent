@@ -59,11 +59,15 @@ public class CategoryService implements CategoryApi {
         return null;
     }
 
+    /**
+     * @param ids
+     * @return
+     */
     @Override
     public List<String> queryNameByIds(List<Long> ids) {
         List<Category> list = this.categoryMapper.selectByIdList(ids);
         List<String> names = new ArrayList<>();
-        for (Category category:list){
+        for (Category category : list) {
             names.add(category.getName());
         }
         return names;
@@ -71,6 +75,7 @@ public class CategoryService implements CategoryApi {
 
     /**
      * 根据三级分类id查询1~3级分类集合
+     *
      * @param id
      * @return
      */
@@ -78,7 +83,6 @@ public class CategoryService implements CategoryApi {
         Category c3 = this.categoryMapper.selectByPrimaryKey(id);
         Category c2 = this.categoryMapper.selectByPrimaryKey(c3.getParentId());
         Category c1 = this.categoryMapper.selectByPrimaryKey(c2.getParentId());
-        return Arrays.asList(c1,c2,c3);
+        return Arrays.asList(c1, c2, c3);
     }
-
 }

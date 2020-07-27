@@ -16,9 +16,7 @@ import tk.mybatis.spring.annotation.MapperScan;
 @MapperScan(basePackages = "com.leyou.item.mapper")
 @EnableTransactionManagement
 public class LyItemService {
-
     public static void main(String[] args) {
         SpringApplication.run(LyItemService.class, args);
     }
-    
 }

@@ -15,8 +15,7 @@ import org.springframework.web.bind.annotation.*;
 import javax.annotation.Resource;
 import java.util.List;
 
-@Controller
-@RequestMapping
+@RestController
 public class SearchController {
 
     @Resource
@@ -24,8 +23,6 @@ public class SearchController {
 
     @Resource
     private CategoryService categoryService;
-
-
 
     /**
      * 搜索商品
@@ -42,19 +39,18 @@ public class SearchController {
         return ResponseEntity.ok(result);
     }
 
-
     /**
      * 根据3级分类id，查询1~3级的分类
+     *
      * @param id
      * @return
      */
     @GetMapping("all/level")
-    public ResponseEntity<List<Category>> queryAllByCid3(@RequestParam("id") Long id){
+    public ResponseEntity<List<Category>> queryAllByCid3(@RequestParam("id") Long id) {
         List<Category> list = this.categoryService.queryAllByCid3(id);
         if (list == null || list.size() < 1) {
             return new ResponseEntity<>(HttpStatus.NOT_FOUND);
         }
         return ResponseEntity.ok(list);
     }
-
 }

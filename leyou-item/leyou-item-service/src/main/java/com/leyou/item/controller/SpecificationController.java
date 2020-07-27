@@ -20,7 +20,6 @@ public class SpecificationController {
     @Resource
     private SpecificationService specificationService;
 
-
     /**
      * 根据分类cid查询规格组
      *

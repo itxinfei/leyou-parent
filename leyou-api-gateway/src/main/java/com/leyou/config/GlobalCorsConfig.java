@@ -59,6 +59,8 @@ public class GlobalCorsConfig {
         /**
          * 三、返回新的CorsFilter
          */
+
+        System.out.println(configSource.toString());
         return new CorsFilter(configSource);
     }
 }

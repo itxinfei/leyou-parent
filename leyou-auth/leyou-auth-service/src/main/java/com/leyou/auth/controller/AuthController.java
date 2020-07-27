@@ -16,6 +16,9 @@ import javax.annotation.Resource;
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
 
+/**
+ * 授权中心
+ */
 @RestController
 @EnableConfigurationProperties(JwtProperties.class)
 public class AuthController {
@@ -37,7 +40,7 @@ public class AuthController {
             HttpServletResponse response) {
         //登陆校验
         String token = this.authService.accredit(username, password);
-        System.out.println("token:"+token);
+        System.out.println("token:" + token);
 
         if (StringUtils.isBlank(token)) {
             return new ResponseEntity<>(HttpStatus.UNAUTHORIZED);

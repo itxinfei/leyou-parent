@@ -30,7 +30,7 @@ public class SMSTest {
 
     @Test
     public void smsTest() throws ClientException {
-        smsUtils.sendSms("17671787093", "测试验证码推送功能：8888", "心飞为你飞", "SMS_76525096");
+       // smsUtils.sendSms("17671787093", "测试验证码推送功能：8888", "心飞为你飞", "SMS_76525096");
     }
 
     @Test
