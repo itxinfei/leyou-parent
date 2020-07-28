@@ -16,6 +16,9 @@ import org.springframework.util.CollectionUtils;
 import javax.annotation.Resource;
 import java.util.Map;
 
+/**
+ * 消息队列
+ */
 @Component
 public class SmsListener {
 
@@ -52,7 +55,6 @@ public class SmsListener {
             // 放弃处理
             return;
         }
-
         smsUtils.sendSms(phone, code, this.properties.getSignName(), this.properties.getVerifyCodeTemplate());
     }
 }

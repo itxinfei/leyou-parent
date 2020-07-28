@@ -2,6 +2,9 @@ package com.leyou.sms.config;
 
 import org.springframework.boot.context.properties.ConfigurationProperties;
 
+/**
+ * 短信配置
+ */
 @ConfigurationProperties(prefix = "leyou.sms")
 public class SmsProperties {
 

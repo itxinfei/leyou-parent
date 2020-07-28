@@ -35,15 +35,15 @@
             <groupId>org.springframework.boot</groupId>
             <artifactId>spring-boot-starter-test</artifactId>
         </dependency>
-        <!--热部署插件-->
+       <!-- &lt;!&ndash;热部署插件&ndash;&gt;
         <dependency>
             <groupId>org.springframework.boot</groupId>
             <artifactId>spring-boot-devtools</artifactId>
             <version>2.0.0.RELEASE</version>
-            <!--依赖不会传递-->
+            &lt;!&ndash;依赖不会传递&ndash;&gt;
             <optional>true</optional>
             <scope>runtime</scope>
-        </dependency>
+        </dependency>-->
         <dependency>
             <groupId>org.springframework.boot</groupId>
             <artifactId>spring-boot-configuration-processor</artifactId>

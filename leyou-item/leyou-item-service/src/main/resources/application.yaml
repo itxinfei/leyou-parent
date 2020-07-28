@@ -10,7 +10,6 @@ spring:
     hikari:
       maximum-pool-size: 30
       minimum-idle: 10
-
   # 解决springboot 数据源循环依赖问题 eureka服务无法被调用
   cloud:
     refresh:
@@ -23,11 +22,9 @@ spring:
     template:
       exchange: leyou.item.exchange
     publisher-confirms: true
-
 logging:
   level:
     cup.com.mapper: DEBUG
-
 # 注册中心
 eureka:
   client:
@@ -39,13 +36,6 @@ eureka:
     prefer-ip-address: true
     ip-address: 127.0.0.1
     instance-id: ${spring.application.name}:${server.port}
-
-# API网关
-#zuul:
-#  prefix: /api # 添加路由前缀
-#  retryable: true
-#  routes:
-#    item-service: /item/**   # 将商品微服务映射到/item/**
 
 # actuator监控应用
 management:

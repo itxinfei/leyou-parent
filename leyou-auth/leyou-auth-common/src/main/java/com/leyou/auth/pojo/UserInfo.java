@@ -1,9 +1,11 @@
 package com.leyou.auth.pojo;
 
+import java.io.Serializable;
+
 /**
  * 载荷对象
  */
-public class UserInfo {
+public class UserInfo implements Serializable {
 
     private Long id;
 

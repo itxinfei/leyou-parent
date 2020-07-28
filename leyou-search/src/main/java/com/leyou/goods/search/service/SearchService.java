@@ -62,7 +62,7 @@ public class SearchService {
     @Autowired
     private ElasticsearchTemplate elasticsearchTemplate;
 
-    @Resource
+    @Autowired
     private CategoryMapper categoryMapper;
 
     private ObjectMapper mapper = new ObjectMapper();

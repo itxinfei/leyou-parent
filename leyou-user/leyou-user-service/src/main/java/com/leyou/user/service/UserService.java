@@ -21,7 +21,7 @@ import java.util.concurrent.TimeUnit;
 @Service
 public class UserService {
 
-    @Resource
+    @Autowired
     private UserMapper userMapper;
 
     @Autowired

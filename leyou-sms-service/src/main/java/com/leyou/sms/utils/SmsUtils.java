@@ -17,6 +17,10 @@ import org.springframework.stereotype.Component;
 
 import javax.annotation.Resource;
 
+
+/**
+ * 短信工具
+ */
 @Component
 @EnableConfigurationProperties(SmsProperties.class)
 public class SmsUtils {
@@ -31,13 +35,13 @@ public class SmsUtils {
 
     static final Logger logger = LoggerFactory.getLogger(SmsUtils.class);
 
-    public  SendSmsResponse sendSms(String phone, String code, String signName, String template) throws ClientException {
+    public SendSmsResponse sendSms(String phone, String code, String signName, String template) throws ClientException {
 
         System.out.println("开始发送短信！！！");
 
         //可自助调整超时时间
-        System.setProperty("sun.net.client.defaultConnectTimeout", "10000");
-        System.setProperty("sun.net.client.defaultReadTimeout", "10000");
+        System.setProperty("sun.net.client.defaultConnectTimeout", "100000");
+        System.setProperty("sun.net.client.defaultReadTimeout", "100000");
 
         //初始化acsClient,暂不支持region化
         IClientProfile profile = DefaultProfile.getProfile("cn-hangzhou",
@@ -56,7 +60,7 @@ public class SmsUtils {
         request.setTemplateCode(template);
         //可选:模板中的变量替换JSON串,如模板内容为"亲爱的${name},您的验证码为${code}"时,此处的值为
         request.setTemplateParam("{\"name\":\"" + code + "\"}");
-       // request.setTemplateParam("{\"name\":\"" + code + "\"}");
+        // request.setTemplateParam("{\"name\":\"" + code + "\"}");
         //选填-上行短信扩展码(无特殊需求用户请忽略此字段)
         //request.setSmsUpExtendCode("90997");
 
@@ -64,7 +68,9 @@ public class SmsUtils {
         request.setOutId("123456");
 
         //hint 此处可能会抛出异常，注意catch
+
         SendSmsResponse sendSmsResponse = acsClient.getAcsResponse(request);
+
 
         logger.info("发送短信状态：{}", sendSmsResponse.getCode());
         logger.info("发送短信消息：{}", sendSmsResponse.getMessage());

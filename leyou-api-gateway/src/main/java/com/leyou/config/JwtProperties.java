@@ -14,22 +14,30 @@ import java.security.PublicKey;
 @ConfigurationProperties(prefix = "leyou.jwt")
 public class JwtProperties {
 
-    private String pubKeyPath;// 公钥
-
-    private PublicKey publicKey; // 公钥
-
+    /**
+     * 公钥
+     */
+    private String pubKeyPath;
+    /**
+     * 公钥
+     */
+    private PublicKey publicKey;
+    /**
+     * cookie
+     */
     private String cookieName;
 
     private static final Logger logger = LoggerFactory.getLogger(JwtProperties.class);
 
     /**
-     * @PostConstruct注解的方法将会在依赖注入完成后被自动调用,方法会在服务器加载Servlet的时候运行，
-     * 并且只会被服务器执行一次。
+     * @PostConstruct注解的方法将会在依赖注入完成后被自动调用,方法会在服务器加载Servlet的时候运行， 并且只会被服务器执行一次。
      */
     @PostConstruct
     public void init() {
         try {
             // 获取公钥和私钥
+            System.out.println(pubKeyPath.toString());
+            System.out.println(publicKey.toString());
             this.publicKey = RsaUtils.getPublicKey(pubKeyPath);
         } catch (Exception e) {
             logger.error("初始化公钥失败！", e);

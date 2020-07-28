@@ -16,6 +16,7 @@ public class FilterProperties {
     private List<String> allowPaths;
 
     public List<String> getAllowPaths() {
+        System.out.println("allowPaths:" + allowPaths.toString());
         return allowPaths;
     }
 

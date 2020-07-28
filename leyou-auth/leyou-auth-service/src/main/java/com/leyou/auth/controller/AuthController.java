@@ -38,6 +38,8 @@ public class AuthController {
             @RequestParam("password") String password,
             HttpServletRequest request,
             HttpServletResponse response) {
+        //获取前端username+password
+        System.out.println("前端username+password:" + username + "====" + password);
         //登陆校验
         String token = this.authService.accredit(username, password);
         System.out.println("token:" + token);
@@ -69,8 +71,8 @@ public class AuthController {
             token = JwtUtils.generateToken(userInfo, this.prop.getPrivateKey(), this.prop.getExpire());
             //将重新生成的token，写入cookie中
             CookieUtils.setCookie(request, response, this.prop.getCookieName(), token, this.prop.getExpire() * 60);
-
             //解析成功返回用户信息
+            System.out.println(userInfo.toString());
             return ResponseEntity.ok(userInfo);
         } catch (Exception e) {
             e.printStackTrace();

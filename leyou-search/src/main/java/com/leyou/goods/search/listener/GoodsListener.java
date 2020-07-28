@@ -13,6 +13,7 @@ import java.io.IOException;
 
 @Component
 public class GoodsListener {
+
     @Autowired
     private SearchService searchService;
     /**
