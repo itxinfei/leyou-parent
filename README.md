@@ -148,11 +148,3 @@ QQ技术交流群：863662849<a target="_blank" href="https://qm.qq.com/cgi-bin/
 ### 后端管理
 - http://manage.leyou.com
 - http://127.0.0.1:9001
-
-
-### 整理不易，欢迎各位白嫖star
-如果可以请各位大佬打赏一下，请我喝杯咖啡，资助一下云服务器，部署一个演示站点，感谢！！！
-
-![输入图片说明](https://images.gitee.com/uploads/images/2020/1022/152637_f80669f5_800553.jpeg "支付宝收钱码.jpg")
-
-![输入图片说明](https://images.gitee.com/uploads/images/2020/1022/152705_964cb145_800553.png "微信收钱码.png")
