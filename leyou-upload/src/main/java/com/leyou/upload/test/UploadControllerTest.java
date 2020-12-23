@@ -1,4 +1,4 @@
-package test.com.leyou.upload.controller;
+package com.leyou.upload.test;
 
 import com.github.tobato.fastdfs.domain.StorePath;
 import com.github.tobato.fastdfs.domain.ThumbImageConfig;
@@ -29,7 +29,6 @@ import java.util.HashSet;
 /**
  * 上传测试
  */
-
 @RunWith(SpringRunner.class)
 @SpringBootTest(classes = LyUploadApplication.class)
 public class UploadControllerTest {

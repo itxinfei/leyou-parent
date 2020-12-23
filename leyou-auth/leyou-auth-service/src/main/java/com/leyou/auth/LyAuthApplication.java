@@ -1,18 +1,18 @@
-package com.leyou;
+package com.leyou.auth;
 
 import org.springframework.boot.SpringApplication;
 import org.springframework.boot.autoconfigure.SpringBootApplication;
 import org.springframework.cloud.client.discovery.EnableDiscoveryClient;
-import org.springframework.cloud.netflix.zuul.EnableZuulProxy;
+import org.springframework.cloud.openfeign.EnableFeignClients;
 
 /**
- * 商城API网关
+ * 授权中心
  */
 @SpringBootApplication
 @EnableDiscoveryClient
-@EnableZuulProxy
-public class ApiGateway {
+@EnableFeignClients
+public class LyAuthApplication {
     public static void main(String[] args) {
-        SpringApplication.run(ApiGateway.class, args);
+        SpringApplication.run(LyAuthApplication.class, args);
     }
 }

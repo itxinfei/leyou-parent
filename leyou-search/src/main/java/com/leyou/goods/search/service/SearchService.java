@@ -11,7 +11,6 @@ import com.leyou.goods.search.pojo.Goods;
 import com.leyou.goods.search.pojo.SearchRequest;
 import com.leyou.goods.search.pojo.SearchResult;
 import com.leyou.goods.search.repository.GoodsRepository;
-import com.leyou.item.mapper.CategoryMapper;
 import com.leyou.item.pojo.*;
 import org.apache.commons.lang.StringUtils;
 import org.apache.commons.lang.math.NumberUtils;
@@ -25,7 +24,6 @@ import org.elasticsearch.search.sort.SortBuilders;
 import org.elasticsearch.search.sort.SortOrder;
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
-import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.data.domain.PageRequest;
 import org.springframework.data.elasticsearch.core.ElasticsearchTemplate;
 import org.springframework.data.elasticsearch.core.aggregation.AggregatedPage;
@@ -44,26 +42,26 @@ import java.util.*;
 @Service
 public class SearchService {
 
-    @Autowired
+    @Resource
     private CategoryClient categoryClient;
 
-    @Autowired
+    @Resource
     private GoodsClient goodsClient;
 
-    @Autowired
+    @Resource
     private SpecificationClient specificationClient;
 
-    @Autowired
+    @Resource
     private BrandClient brandClient;
 
-    @Autowired
+    @Resource
     private GoodsRepository goodsRepository;
 
-    @Autowired
+    @Resource
     private ElasticsearchTemplate elasticsearchTemplate;
 
-    @Autowired
-    private CategoryMapper categoryMapper;
+   /* @Autowired
+    private CategoryMapper categoryMapper;*/
 
     private ObjectMapper mapper = new ObjectMapper();
 
@@ -271,7 +269,7 @@ public class SearchService {
                 cids.add(bucket.getKeyAsNumber().longValue());
             }
             // 根据id查询分类名称
-            List<String> names = this.categoryClient.queryNameByIds(cids);
+            List<Category> names = this.categoryClient.queryCategoryListByids(cids);
 
             for (int i = 0; i < names.size(); i++) {
                 Map<String, Object> map = new HashMap<>();
@@ -390,7 +388,7 @@ public class SearchService {
      * @throws IOException
      */
     public void createIndex(Long id) throws IOException {
-        Spu spu = this.goodsClient.querySpuById(id);
+        Spu spu = this.goodsClient.querySpuBySpuId(id);
         //构建商品
         Goods goods = this.buildGoods(spu);
         //保存数据到索引库
@@ -408,10 +406,10 @@ public class SearchService {
      * @param id
      * @return
      */
-    public List<Category> queryAllByCid3(Long id) {
+   /* public List<Category> queryAllByCid3(Long id) {
         Category c3 = this.categoryMapper.selectByPrimaryKey(id);
         Category c2 = this.categoryMapper.selectByPrimaryKey(c3.getParentId());
         Category c1 = this.categoryMapper.selectByPrimaryKey(c2.getParentId());
         return Arrays.asList(c1, c2, c3);
-    }
+    }*/
 }

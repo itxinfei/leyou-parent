@@ -5,15 +5,14 @@ spring:
     name: user-service
   datasource:
     url: jdbc:mysql://127.0.0.1:3306/leyou?characterEncoding=utf8&useSSL=false&serverTimezone=UTC&allowPublicKeyRetrieval=true
-    #url: jdbc:mysql://106.12.5.16:3306/leyou?characterEncoding=utf8&useSSL=false&serverTimezone=UTC&allowPublicKeyRetrieval=true
     username: root
     password: root
     driver-class-name: com.mysql.jdbc.Driver
   rabbitmq:
-    host: 192.168.8.6
+    host: 172.168.20.221
     username: leyou
     password: leyou
-    virtual-host: leyou
+    virtual-host: /leyou
     template:
       retry:
         enabled: true
@@ -23,7 +22,7 @@ spring:
     #leyou
     publisher-confirms: true
   redis:
-    host: 192.168.8.6
+    host: 172.168.20.221
 eureka:
   client:
     service-url:

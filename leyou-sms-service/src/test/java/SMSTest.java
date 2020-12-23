@@ -1,6 +1,5 @@
-import com.aliyuncs.dysmsapi.model.v20170525.SendSmsResponse;
 import com.aliyuncs.exceptions.ClientException;
-import com.leyou.sms.LeyouSmsApplication;
+import com.leyou.sms.LySmsApplication;
 import com.leyou.sms.utils.SmsUtils;
 import org.junit.Test;
 import org.junit.runner.RunWith;
@@ -18,8 +17,8 @@ import java.util.concurrent.TimeUnit;
  *
  */
 @RunWith(SpringJUnit4ClassRunner.class)
-@SpringBootTest(classes = LeyouSmsApplication.class)
-@Import({LeyouSmsApplication.class})
+@SpringBootTest(classes = LySmsApplication.class)
+@Import({LySmsApplication.class})
 public class SMSTest {
 
     @Autowired

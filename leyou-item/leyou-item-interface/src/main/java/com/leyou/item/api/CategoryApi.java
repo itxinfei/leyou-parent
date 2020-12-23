@@ -27,5 +27,4 @@ public interface CategoryApi {
     @GetMapping("names")
     List<String> queryNameByIds(@RequestParam("ids") List<Long> ids);
 
-
 }

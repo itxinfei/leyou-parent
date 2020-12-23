@@ -14,6 +14,7 @@ import org.springframework.web.servlet.config.annotation.WebMvcConfigurer;
 @Configuration
 @EnableConfigurationProperties(JwtProperties.class)
 public class MvcConfig implements WebMvcConfigurer {
+
     @Autowired
     private JwtProperties jwtProperties;
 

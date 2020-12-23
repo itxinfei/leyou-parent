@@ -25,6 +25,13 @@ public class LoginInterceptor extends HandlerInterceptorAdapter {
         this.jwtProperties = jwtProperties;
     }
 
+    /**
+     * @param request
+     * @param response
+     * @param handler
+     * @return
+     * @throws Exception
+     */
     @Override
     public boolean preHandle(HttpServletRequest request, HttpServletResponse response, Object handler) throws Exception {
         //查询token
@@ -49,6 +56,13 @@ public class LoginInterceptor extends HandlerInterceptorAdapter {
 
     }
 
+    /**
+     * @param request
+     * @param response
+     * @param handler
+     * @param ex
+     * @throws Exception
+     */
     @Override
     public void afterCompletion(HttpServletRequest request, HttpServletResponse response, Object handler, Exception ex) throws Exception {
         tl.remove();

@@ -1,6 +1,5 @@
 package com.leyou.goods.search.test;
 
-import com.leyou.common.pojo.PageResult;
 import com.leyou.goods.LySearch;
 import com.leyou.goods.search.client.CategoryClient;
 import com.leyou.goods.search.client.GoodsClient;
@@ -8,6 +7,7 @@ import com.leyou.goods.search.pojo.Goods;
 import com.leyou.goods.search.repository.GoodsRepository;
 import com.leyou.goods.search.service.SearchService;
 import com.leyou.item.pojo.Spu;
+import com.leyou.item.vo.PageResult;
 import org.junit.Test;
 import org.junit.runner.RunWith;
 import org.springframework.beans.factory.annotation.Autowired;

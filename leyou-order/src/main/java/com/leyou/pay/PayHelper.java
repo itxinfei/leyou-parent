@@ -1,4 +1,4 @@
-package com.leyou;
+package com.leyou.pay;
 
 import com.github.wxpay.sdk.WXPay;
 import com.leyou.config.PayConfig;

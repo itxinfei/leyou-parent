@@ -4,14 +4,14 @@ spring:
   application:
     name: sms-service
   rabbitmq:
-    host: 192.168.8.6
+    host: 172.168.20.221
     username: leyou
     password: leyou
-    virtual-host: leyou
+    virtual-host: /leyou
     template:
       exchange: leyou.item.exchange
   redis:
-    host: 192.168.8.6
+    host: 172.168.20.221
     database: 0
     port: 6379
     timeout: 1000

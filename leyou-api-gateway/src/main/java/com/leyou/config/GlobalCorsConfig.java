@@ -24,6 +24,7 @@ public class GlobalCorsConfig {
          */
         config.addAllowedOrigin("http://manage.leyou.com");
         config.addAllowedOrigin("http://api.leyou.com");
+        //测试环境下使用，后面删除。
         config.addAllowedOrigin("http://localhost:9002");
         config.addAllowedOrigin("http://localhost:10010");
         /**
@@ -56,13 +57,11 @@ public class GlobalCorsConfig {
         configSource.registerCorsConfiguration("/**", config);
 
         //输出configSource
-        System.out.println("configSource:" + configSource.toString());
+        //System.out.println("configSource:" + configSource.toString());
 
         /**
          * 三、返回新的CorsFilter
          */
-
-        System.out.println(configSource.toString());
         return new CorsFilter(configSource);
     }
 }

@@ -21,7 +21,6 @@ import java.util.List;
 @Service
 public class BrandService {
 
-
     @Resource
     private BrandMapper brandMapper;
 
@@ -50,7 +49,7 @@ public class BrandService {
     public void deleteBrand(Long bid) {
         int deleteCategory = this.brandMapper.deleteCategoryBrand(bid);
         int deleteByPrimary = this.brandMapper.deleteByPrimaryKey(bid);
-        System.out.println(deleteCategory+deleteByPrimary);
+        System.out.println(deleteCategory + deleteByPrimary);
     }
 
     /**
@@ -139,6 +138,7 @@ public class BrandService {
 
     /**
      * 根据多个id查询品牌
+     *
      * @param ids
      * @return
      */

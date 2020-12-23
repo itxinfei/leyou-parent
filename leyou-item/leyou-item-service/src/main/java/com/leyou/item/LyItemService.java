@@ -10,10 +10,8 @@ import tk.mybatis.spring.annotation.MapperScan;
  * 商品微服务
  */
 @SpringBootApplication
-//Eureka Client,@EnableDiscoveryClient 或@EnableEurekaClient
-@EnableDiscoveryClient
-//mapper接口的包扫描,以后不需要在mapper接口上声明@Mapper注解
-@MapperScan(basePackages = "com.leyou.item.mapper")
+@EnableDiscoveryClient//Eureka Client,@EnableDiscoveryClient 或@EnableEurekaClient
+@MapperScan(basePackages = "com.leyou.item.mapper")//mapper接口的包扫描,以后不需要在mapper接口上声明@Mapper注解
 @EnableTransactionManagement
 public class LyItemService {
     public static void main(String[] args) {

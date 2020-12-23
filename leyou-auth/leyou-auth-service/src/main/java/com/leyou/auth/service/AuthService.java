@@ -4,7 +4,6 @@ import com.leyou.auth.client.UserClient;
 import com.leyou.auth.config.JwtProperties;
 import com.leyou.auth.pojo.UserInfo;
 import com.leyou.auth.utils.JwtUtils;
-import com.leyou.common.exception.LyException;
 import com.leyou.user.pojo.User;
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
@@ -12,28 +11,19 @@ import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.boot.context.properties.EnableConfigurationProperties;
 import org.springframework.stereotype.Service;
 
-import javax.annotation.Resource;
-
 /**
  *
  */
 @Service
 @EnableConfigurationProperties(JwtProperties.class)
 public class AuthService {
-    /**
-     *
-     */
+
     @Autowired
     private UserClient userClient;
-    /**
-     *
-     */
+
     @Autowired
     private JwtProperties prop;
-
-    /**
-     * 日志
-     */
+    
     private static Logger logger = LoggerFactory.getLogger(AuthService.class);
 
     /**

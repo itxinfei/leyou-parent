@@ -10,12 +10,13 @@ import java.util.List;
 
 
 /**
- *
+ * 品牌管理
  */
 public interface BrandApi {
 
     /**
      * 新增品牌
+     *
      * @param brand
      * @param cids
      */
@@ -25,6 +26,7 @@ public interface BrandApi {
 
     /**
      * 根据分类查询品牌
+     *
      * @param cid
      * @return
      */
@@ -34,6 +36,7 @@ public interface BrandApi {
 
     /**
      * 根据id查询品牌
+     *
      * @param id
      */
     @GetMapping("brand/{id}")
@@ -41,6 +44,7 @@ public interface BrandApi {
 
     /**
      * 根据id列表查询品牌列表
+     *
      * @param ids
      * @return
      */

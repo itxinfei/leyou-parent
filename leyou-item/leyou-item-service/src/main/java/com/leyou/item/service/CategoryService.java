@@ -1,6 +1,5 @@
 package com.leyou.item.service;
 
-import com.leyou.item.api.CategoryApi;
 import com.leyou.item.mapper.CategoryMapper;
 import com.leyou.item.pojo.Category;
 import org.springframework.stereotype.Service;
@@ -14,7 +13,7 @@ import java.util.List;
  * 分类管理
  */
 @Service
-public class CategoryService implements CategoryApi {
+public class CategoryService {
 
     @Resource
     private CategoryMapper categoryMapper;
@@ -54,7 +53,6 @@ public class CategoryService implements CategoryApi {
      *
      * @param ids
      */
-    @Override
     public List<Category> queryCategoryListByids(List<Long> ids) {
         return null;
     }
@@ -63,7 +61,6 @@ public class CategoryService implements CategoryApi {
      * @param ids
      * @return
      */
-    @Override
     public List<String> queryNameByIds(List<Long> ids) {
         List<Category> list = this.categoryMapper.selectByIdList(ids);
         List<String> names = new ArrayList<>();

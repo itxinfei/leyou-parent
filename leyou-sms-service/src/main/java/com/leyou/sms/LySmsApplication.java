@@ -7,8 +7,8 @@ import org.springframework.boot.autoconfigure.SpringBootApplication;
  * 短信发送平台
  */
 @SpringBootApplication
-public class LeyouSmsApplication {
+public class LySmsApplication {
     public static void main(String[] args) {
-        SpringApplication.run(LeyouSmsApplication.class, args);
+        SpringApplication.run(LySmsApplication.class, args);
     }
 }

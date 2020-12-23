@@ -3,18 +3,16 @@ package com.leyou;
 import org.springframework.boot.SpringApplication;
 import org.springframework.boot.autoconfigure.SpringBootApplication;
 import org.springframework.cloud.client.discovery.EnableDiscoveryClient;
-import org.springframework.cloud.openfeign.EnableFeignClients;
-import tk.mybatis.spring.annotation.MapperScan;
+import org.springframework.cloud.netflix.zuul.EnableZuulProxy;
 
 /**
- * 订单系统
+ * 商城API网关
  */
 @SpringBootApplication
 @EnableDiscoveryClient
-@EnableFeignClients
-@MapperScan("com.leyou.order.mapper")
-public class LeyouOrderApplication {
+@EnableZuulProxy
+public class LyGateway {
     public static void main(String[] args) {
-        SpringApplication.run(LeyouOrderApplication.class, args);
+        SpringApplication.run(LyGateway.class, args);
     }
 }

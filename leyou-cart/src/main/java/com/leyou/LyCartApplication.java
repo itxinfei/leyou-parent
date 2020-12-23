@@ -11,8 +11,8 @@ import org.springframework.cloud.openfeign.EnableFeignClients;
 @SpringBootApplication
 @EnableDiscoveryClient
 @EnableFeignClients
-public class LeyouCartApplication {
+public class LyCartApplication {
     public static void main(String[] args) {
-        SpringApplication.run(LeyouCartApplication.class, args);
+        SpringApplication.run(LyCartApplication.class, args);
     }
 }

@@ -33,19 +33,25 @@ import java.util.stream.Collectors;
 @Service
 public class GoodsService {
 
-    @Autowired
+    @Resource
     private SpuMapper spuMapper;
-    @Autowired
+
+    @Resource
     private BrandMapper brandMapper;
-    @Autowired
+
+    @Resource
     private CategoryService categoryService;
-    @Autowired
+
+    @Resource
     private SpuDetailMapper spuDetailMapper;
-    @Autowired
+
+    @Resource
     private SkuMapper skuMapper;
-    @Autowired
+
+    @Resource
     private StockMapper stockMapper;
-    @Autowired
+
+    @Resource
     private AmqpTemplate amqpTemplate;
 
     public PageResult<SpuBo> querySpuByPage(String key, Boolean saleable, Integer page, Integer rows) {
@@ -193,6 +199,7 @@ public class GoodsService {
 
     /**
      * 发送消息到mq
+     *
      * @param type
      * @param id
      */

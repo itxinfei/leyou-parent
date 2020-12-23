@@ -1,18 +1,20 @@
-package com.leyou.auth;
+package com.leyou;
 
 import org.springframework.boot.SpringApplication;
 import org.springframework.boot.autoconfigure.SpringBootApplication;
 import org.springframework.cloud.client.discovery.EnableDiscoveryClient;
 import org.springframework.cloud.openfeign.EnableFeignClients;
+import tk.mybatis.spring.annotation.MapperScan;
 
 /**
- * 授权中心
+ * 订单系统
  */
 @SpringBootApplication
 @EnableDiscoveryClient
 @EnableFeignClients
-public class LeyouAuthApplication {
+@MapperScan("com.leyou.order.mapper")
+public class LyOrderApplication {
     public static void main(String[] args) {
-        SpringApplication.run(LeyouAuthApplication.class, args);
+        SpringApplication.run(LyOrderApplication.class, args);
     }
 }

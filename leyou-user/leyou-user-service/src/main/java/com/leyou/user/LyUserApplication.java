@@ -11,8 +11,8 @@ import tk.mybatis.spring.annotation.MapperScan;
 @SpringBootApplication
 @EnableDiscoveryClient
 @MapperScan("com.leyou.user.mapper")
-public class LeyouUserApplication {
+public class LyUserApplication {
     public static void main(String[] args) {
-        SpringApplication.run(LeyouUserApplication.class, args);
+        SpringApplication.run(LyUserApplication.class, args);
     }
 }

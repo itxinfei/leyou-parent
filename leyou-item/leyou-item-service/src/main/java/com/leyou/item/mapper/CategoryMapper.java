@@ -9,6 +9,7 @@ import tk.mybatis.mapper.common.Mapper;
 import java.util.List;
 
 /**
+ * 分类管理
  * category_id=商品类目id
  * brand_id=品牌id
  */

@@ -9,22 +9,22 @@ import com.leyou.item.pojo.Sku;
 import org.apache.commons.lang.StringUtils;
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
-import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.data.redis.core.BoundHashOperations;
-import org.springframework.data.redis.core.StringRedisTemplate;
+import org.springframework.data.redis.core.RedisTemplate;
 import org.springframework.stereotype.Service;
 import org.springframework.util.CollectionUtils;
 
+import javax.annotation.Resource;
 import java.util.List;
 import java.util.stream.Collectors;
 
 @Service
 public class CartService {
 
-    @Autowired
-    private StringRedisTemplate redisTemplate;
+    @Resource
+    private RedisTemplate redisTemplate;
 
-    @Autowired
+    @Resource
     private GoodsClient goodsClient;
 
     static final String KEY_PREFIX = "ly:cart:uid:";
@@ -57,7 +57,7 @@ public class CartService {
             //不存在，新增购物车数据
             cart.setUserId(user.getId());
             //其他商品信息，需要查询商品服务
-            Sku sku = this.goodsClient.querySkuById(skuId);
+            Sku sku = this.goodsClient.querySkuBySkuId(skuId);
             cart.setImage(StringUtils.isBlank(sku.getImages()) ? "" :
                     StringUtils.split(sku.getImages(), ",")[0]);
             cart.setPrice(sku.getPrice());
@@ -93,6 +93,10 @@ public class CartService {
         return carts.stream().map(o -> JsonUtils.parse(o.toString(), Cart.class)).collect(Collectors.toList());
     }
 
+    /**
+     * @param skuId
+     * @param num
+     */
     public void updateNum(Long skuId, Integer num) {
         //获取登陆用户
         UserInfo user = LoginInterceptor.getLoginUser();
@@ -106,6 +110,9 @@ public class CartService {
         hashOps.put(skuId.toString(), JsonUtils.serialize(cart));
     }
 
+    /**
+     * @param skuId
+     */
     public void deleteCart(String skuId) {
         //获取登陆用户
         UserInfo user = LoginInterceptor.getLoginUser();

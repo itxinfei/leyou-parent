@@ -4,7 +4,7 @@ spring:
   application:
     name: cart-service
   redis:
-    host: 172.168.20.220
+    host: 172.168.20.221
 eureka:
   client:
     service-url:
@@ -20,5 +20,5 @@ eureka:
 # 配置公钥
 leyou:
   jwt:
-    pubKeyPath: D:\tmp\leyou\rsa.pub  #公钥存放地址
+    pubKeyPath: D:\\rsa\\rsa.pub  #公钥存放地址
     cookieName: LY_TOKEN

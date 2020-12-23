@@ -15,10 +15,10 @@ spring:
     refresh:
       refreshable: none
   rabbitmq:
-    addresses: 192.168.8.6
+    addresses: 172.168.20.221
     username: leyou
     password: leyou
-    virtual-host: leyou
+    virtual-host: /leyou
     template:
       exchange: leyou.item.exchange
     publisher-confirms: true

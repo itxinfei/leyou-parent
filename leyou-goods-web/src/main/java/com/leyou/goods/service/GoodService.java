@@ -33,7 +33,7 @@ public class GoodService {
         Map<String, Object> model = new HashMap<>();
 
         // 根据SpuId查询spu
-        Spu spu = goodsClient.querySpuById(spuId);
+        Spu spu = goodsClient.querySpuBySpuId(spuId);
 
         // 查询SpuDetail
         SpuDetail spuDetail = goodsClient.querySpuDetailById(spuId);
