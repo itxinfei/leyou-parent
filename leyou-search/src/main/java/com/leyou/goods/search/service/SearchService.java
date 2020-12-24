@@ -24,6 +24,7 @@ import org.elasticsearch.search.sort.SortBuilders;
 import org.elasticsearch.search.sort.SortOrder;
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
+import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.data.domain.PageRequest;
 import org.springframework.data.elasticsearch.core.ElasticsearchTemplate;
 import org.springframework.data.elasticsearch.core.aggregation.AggregatedPage;
@@ -60,7 +61,7 @@ public class SearchService {
     @Resource
     private ElasticsearchTemplate elasticsearchTemplate;
 
-   /* @Autowired
+    /*@Autowired
     private CategoryMapper categoryMapper;*/
 
     private ObjectMapper mapper = new ObjectMapper();
@@ -384,6 +385,8 @@ public class SearchService {
     }
 
     /**
+     * 创建索引
+     *
      * @param id
      * @throws IOException
      */
@@ -396,6 +399,8 @@ public class SearchService {
     }
 
     /**
+     * 删除索引
+     *
      * @param id
      */
     public void deleteIndex(Long id) {

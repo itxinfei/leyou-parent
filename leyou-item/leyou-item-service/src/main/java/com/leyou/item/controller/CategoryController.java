@@ -66,7 +66,7 @@ public class CategoryController {
      * @param ids 要查询的分类id集合
      * @return 多个名称的集合
      */
-    @GetMapping("names")
+    @GetMapping("queryNameByIds")
     public ResponseEntity<List<String>> queryNameByIds(@RequestParam("ids") List<Long> ids) {
         List<String> list = this.categoryService.queryNameByIds(ids);
         if (list == null || list.size() < 1) {

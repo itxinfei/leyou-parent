@@ -11,6 +11,7 @@ import java.util.List;
 /**
  * 商品分类服务接口
  */
+@RequestMapping("category")
 public interface CategoryApi {
     /**
      * 根据id查询商品分类
@@ -18,13 +19,13 @@ public interface CategoryApi {
      * @param ids
      */
     @GetMapping("list/ids")
-    List<Category> queryCategoryListByids(@RequestParam("ids") List<Long> ids);
+    List<Category> queryCategoryListByids(@RequestParam(value = "ids", required = false) List<Long> ids);
 
     /**
      * @param ids
      * @return
      */
-    @GetMapping("names")
-    List<String> queryNameByIds(@RequestParam("ids") List<Long> ids);
+    @GetMapping("queryNameByIds")
+    List<String> queryNameByIds(@RequestParam(value = "ids", required = false) List<Long> ids);
 
 }
