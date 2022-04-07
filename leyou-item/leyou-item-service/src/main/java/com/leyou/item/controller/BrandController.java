@@ -146,6 +146,4 @@ public class BrandController {
         }
         return ResponseEntity.ok(result);
     }
-
-
 }

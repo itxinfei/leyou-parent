@@ -77,9 +77,11 @@ public class RsaUtils {
         KeyPair keyPair = keyPairGenerator.genKeyPair();
         // 获取公钥并写出
         byte[] publicKeyBytes = keyPair.getPublic().getEncoded();
+        System.out.println(publicKeyBytes);
         writeFile(publicKeyFilename, publicKeyBytes);
         // 获取私钥并写出
         byte[] privateKeyBytes = keyPair.getPrivate().getEncoded();
+        System.out.println(privateKeyBytes.toString());
         writeFile(privateKeyFilename, privateKeyBytes);
     }
 
@@ -89,6 +91,7 @@ public class RsaUtils {
 
     private static void writeFile(String destPath, byte[] bytes) throws IOException {
         File dest = new File(destPath);
+        System.out.println("文件路径" + dest);
         if (!dest.exists()) {
             dest.createNewFile();
         }
